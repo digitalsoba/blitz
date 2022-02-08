@@ -1,0 +1,18 @@
+version: "3.9"  
+services:
+  webhook:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "9000:9000"
+    volumes:
+      - app_data:/app/data
+  client:
+    image: alpine/curl:3.14
+    depends_on:
+      - blitz
+    command: ["/bin/sh", "-c", "tail -F /dev/null"]
+
+volumes:
+  app_data:

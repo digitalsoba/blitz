@@ -1,0 +1,28 @@
+- id: webhook
+  execute-command: "./app"
+  http-methods: ["POST"]
+  incoming-payload-content-types: ["application/json"]
+  include-command-output-in-response: true
+  include-command-output-in-response-on-error: true
+  trigger-rule:
+    and:
+    - match:
+        type: value
+        value: "Bearer auth-token-123"
+        parameter:
+          name: Authorization
+          source: header
+  trigger-rule-mismatch-http-response-code: 418
+  pass-arguments-to-command:
+  - source: "string"
+    name: "-filename"
+  - source: "payload"
+    name: "filename"
+  - source: "string"
+    name: "-content"
+  - source: "payload"
+    name: "content"
+  - source: "string"
+    name: "-token"
+  - source: "header"
+    name: "Authorization"
