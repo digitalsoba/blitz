@@ -1,5 +1,5 @@
 # blitz
-
+This is a GoLang project the usess a webhook to create files from the payload. This only accepts JSON post requests with a Bearer token, filename, and content.
 ## Building the project
 
 You can build the project using make. You can choose a Docker image or plain binaries.
@@ -11,7 +11,7 @@ Deploy this project on any Kubernetes cluster running Nginx Ingress and kustomiz
 ## Developer Reference
 
 ### Local development
-Note: You'll need Go v1.17 and Docker to run this application locally. Run `make dev` to start the complied development server via docker-compose. You should run `make dev` again if you modify the `hooks/` or `app.go` files. 
+Note: You'll need Go v1.17 and Docker to run this application locally. Run `make dev` to start the complied development server via docker-compose. You should run `make dev` again if you modify the `hooks/` or `app.go` files. Files created by the webhook are persisted in the `/app/data/` directory.
 
 Two containers are started:
 * `blitz-webhook-1`: runs the webhook + server logic
