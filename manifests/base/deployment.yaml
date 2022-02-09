@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: blitz
+  name: blitz
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: blitz
+  template:
+    metadata:
+      labels:
+        app: blitz
+    spec:
+      containers:
+      - image: digitalsoba/blitz:latest
+        name: blitz
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "512Mi"
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+        ports:
+        - containerPort: 9000
+          name: blitz
