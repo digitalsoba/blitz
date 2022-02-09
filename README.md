@@ -1,5 +1,5 @@
 # blitz
-This is a GoLang project the usess a webhook to create files from the payload. This only accepts JSON post requests with a Bearer token, filename, and content.
+This is a GoLang project the usess a webhook to create files from the payload. This only accepts JSON post requests with a Bearer token, filename, and content. Hosted on [Docker Hub](https://hub.docker.com/repository/docker/digitalsoba/blitz).
 ## Building the project
 
 You can build the project using make. You can choose a Docker image or plain binaries.
